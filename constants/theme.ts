@@ -13,8 +13,8 @@ export const layout = {
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    maxWidth: 1200,
-    width: '100%',
-    alignSelf: 'center',
+    maxWidth: 1200 as const,
+    width: '100%' as const,
+    alignSelf: 'center' as const,
   }
 };

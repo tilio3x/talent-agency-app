@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     fontSize: 16,
     height: '100%',
-    ...(Platform.OS === 'web' && { outlineStyle: 'none' })
   },
   filterRow: {
     flexDirection: 'row',

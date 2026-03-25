@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     fontSize: 16,
     height: '100%',
-    ...(Platform.OS === 'web' && { outlineStyle: 'none' })
   },
   jobCard: {
     marginBottom: 20,
@@ -289,7 +288,6 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     fontSize: 15,
     marginBottom: 16,
-    ...(Platform.OS === 'web' && { outlineStyle: 'none' })
   },
   textArea: {
     minHeight: 100,

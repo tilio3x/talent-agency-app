@@ -3,7 +3,7 @@ import { Pressable, Text, StyleSheet, ViewStyle } from 'react-native';
 import { Colors } from '../constants/theme';
 
 interface ButtonProps {
-  children: string;
+  children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   onPress?: () => void;
   fullWidth?: boolean;
