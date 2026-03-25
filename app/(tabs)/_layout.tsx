@@ -1,33 +1,58 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Tabs } from 'expo-router';
+import { Colors } from '../../constants/theme';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Platform } from 'react-native';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+        headerStyle: {
+          backgroundColor: Colors.bgSecondary,
+          borderBottomWidth: 1,
+          borderBottomColor: Colors.borderColor,
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 18,
+        },
+        headerTintColor: Colors.textPrimary,
+        tabBarStyle: {
+          backgroundColor: Colors.bgSecondary,
+          borderTopColor: Colors.borderColor,
+          paddingBottom: Platform.OS === 'ios' ? 24 : 10,
+          paddingTop: 10,
+          height: Platform.OS === 'ios' ? 88 : 64,
+          elevation: 0,
+        },
+        tabBarActiveTintColor: Colors.accentSecondary,
+        tabBarInactiveTintColor: Colors.textSecondary,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'AuraTalent',
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="talent"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Talent Directory',
+          tabBarLabel: 'Talent',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account-group" size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="jobs"
+        options={{
+          title: 'Job Board',
+          tabBarLabel: 'Jobs',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="briefcase-search" size={size} color={color} />,
         }}
       />
     </Tabs>
